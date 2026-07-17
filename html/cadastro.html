@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Cadastrar empresa | Gestão Saudável</title>
+
+    <link rel="icon" href="img/favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<main class="cadastro-page fade">
+
+    <section class="cadastro-container card">
+
+        <header class="cadastro-header">
+
+            <a href="index.html" class="voltar-link">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Voltar
+
+            </a>
+
+            <div class="cadastro-titulo">
+
+                <div class="cadastro-icone">
+
+                    <i class="fa-solid fa-building"></i>
+
+                </div>
+
+                <h1>Criar empresa</h1>
+
+                <p>
+                    Cadastre sua empresa e crie a primeira conta de gestor.
+                </p>
+
+            </div>
+
+        </header>
+
+        <form id="formCadastro">
+
+            <section class="form-section">
+
+                <div class="section-title">
+
+                    <span>1</span>
+
+                    <div>
+
+                        <h2>Dados da empresa</h2>
+
+                        <p>Informações principais da organização.</p>
+
+                    </div>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="input-group">
+
+                        <label for="nomeEmpresa">
+
+                            Nome da empresa
+
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-building"></i>
+
+                            <input
+                                type="text"
+                                id="nomeEmpresa"
+                                placeholder="Ex.: Logicomp"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="cnpj">
+
+                            CNPJ
+
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-file-lines"></i>
+
+                            <input
+                                type="text"
+                                id="cnpj"
+                                placeholder="00.000.000/0000-00"
+                                maxlength="18"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-group form-full">
+
+                        <label for="ramo">
+
+                            Área de atuação
+
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-briefcase"></i>
+
+                            <select id="ramo" required>
+
+                                <option value="">
+                                    Selecione uma área
+                                </option>
+
+                                <option value="Tecnologia">
+                                    Tecnologia
+                                </option>
+
+                                <option value="Alimentos">
+                                    Alimentos
+                                </option>
+
+                                <option value="Finanças">
+                                    Finanças
+                                </option>
+
+                                <option value="Administração">
+                                    Administração
+                                </option>
+
+                                <option value="Educação">
+                                    Educação
+                                </option>
+
+                                <option value="Saúde">
+                                    Saúde
+                                </option>
+
+                                <option value="Indústria">
+                                    Indústria
+                                </option>
+
+                                <option value="Comércio">
+                                    Comércio
+                                </option>
+
+                                <option value="Outro">
+                                    Outro
+                                </option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <section class="form-section">
+
+                <div class="section-title">
+
+                    <span>2</span>
+
+                    <div>
+
+                        <h2>Primeiro gestor</h2>
+
+                        <p>
+                            Essa conta poderá cadastrar os demais funcionários.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="form-grid">
+
+                    <div class="input-group form-full">
+
+                        <label for="nomeGestor">
+
+                            Nome completo
+
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-user-tie"></i>
+
+                            <input
+                                type="text"
+                                id="nomeGestor"
+                                placeholder="Nome do gestor"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="usuarioGestor">
+
+                            Usuário
+
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="usuarioGestor"
+                                placeholder="Crie um usuário"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <label for="senhaGestor">
+
+                            Senha
+
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="senhaGestor"
+                                placeholder="Mínimo de 4 caracteres"
+                                minlength="4"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                    <div class="input-group form-full">
+
+                        <label for="confirmarSenha">
+
+                            Confirmar senha
+
+                        </label>
+
+                        <div class="input-box">
+
+                            <i class="fa-solid fa-shield-halved"></i>
+
+                            <input
+                                type="password"
+                                id="confirmarSenha"
+                                placeholder="Digite a senha novamente"
+                                minlength="4"
+                                required>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+            <button class="btn" type="submit">
+
+                <i class="fa-solid fa-check"></i>
+
+                Criar empresa
+
+            </button>
+
+            <p class="cadastro-login">
+
+                Já possui cadastro?
+
+                <a href="index.html">
+
+                    Entrar
+
+                </a>
+
+            </p>
+
+        </form>
+
+    </section>
+
+</main>
+
+<script src="js/banco.js"></script>
+<script src="js/cadastro.js"></script>
+
+</body>
+
+</html>

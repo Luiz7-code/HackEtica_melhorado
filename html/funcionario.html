@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Área do Funcionário | Gestão Saudável</title>
+
+    <link
+        rel="icon"
+        href="img/favicon.png">
+
+    <link
+        rel="stylesheet"
+        href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="employee-layout">
+
+    <!-- CABEÇALHO -->
+
+    <header class="employee-topbar">
+
+        <div class="employee-brand">
+
+            <div class="employee-brand-icon">
+
+                <i class="fa-solid fa-heart-pulse"></i>
+
+            </div>
+
+            <div>
+
+                <strong>Gestão Saudável</strong>
+
+                <span>Área do funcionário</span>
+
+            </div>
+
+        </div>
+
+        <div class="employee-user">
+
+            <div class="employee-user-info">
+
+                <strong id="nomeFuncionarioTopo">
+                    Funcionário
+                </strong>
+
+                <span id="cargoFuncionarioTopo">
+                    Cargo
+                </span>
+
+            </div>
+
+            <div
+                id="avatarFuncionario"
+                class="employee-user-avatar">
+
+                F
+
+            </div>
+
+            <button
+                id="btnSairFuncionario"
+                class="employee-logout"
+                type="button"
+                title="Sair">
+
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- CONTEÚDO -->
+
+    <main class="employee-content fade">
+
+        <!-- BOAS-VINDAS -->
+
+        <section class="employee-welcome">
+
+            <div>
+
+                <span class="page-label">
+                    Jornada de trabalho
+                </span>
+
+                <h1>
+
+                    Olá,
+                    <span id="nomeFuncionario">
+                        Funcionário
+                    </span>!
+
+                </h1>
+
+                <p id="dataFuncionario">
+                    Data atual
+                </p>
+
+            </div>
+
+            <div class="employee-company-card">
+
+                <div>
+
+                    <i class="fa-solid fa-building"></i>
+
+                </div>
+
+                <section>
+
+                    <span>Empresa</span>
+
+                    <strong id="nomeEmpresaFuncionario">
+                        Empresa
+                    </strong>
+
+                </section>
+
+            </div>
+
+        </section>
+
+        <!-- SITUAÇÃO ATUAL -->
+
+        <section class="employee-summary-grid">
+
+            <article class="employee-status-card">
+
+                <div class="employee-status-header">
+
+                    <div>
+
+                        <span>Estado psicossocial atual</span>
+
+                        <h2 id="estadoAtualTexto">
+                            Sem registro
+                        </h2>
+
+                    </div>
+
+                    <div
+                        id="estadoAtualIcone"
+                        class="employee-status-icon sem-registro">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                    </div>
+
+                </div>
+
+                <div class="employee-last-record">
+
+                    <i class="fa-regular fa-calendar-check"></i>
+
+                    <span id="ultimoRegistroFuncionario">
+                        Nenhum registro realizado hoje.
+                    </span>
+
+                </div>
+
+            </article>
+
+            <article class="employee-action-card">
+
+                <div>
+
+                    <span>Próxima etapa</span>
+
+                    <h2 id="proximaEtapaTexto">
+                        Entrada
+                    </h2>
+
+                    <p>
+                        Registre seu ponto e informe seu estado atual.
+                    </p>
+
+                </div>
+
+                <button
+                    id="btnBaterPonto"
+                    class="employee-main-button"
+                    type="button">
+
+                    <i class="fa-solid fa-fingerprint"></i>
+
+                    Bater ponto
+
+                </button>
+
+            </article>
+
+        </section>
+
+        <!-- PROGRESSO DA JORNADA -->
+
+        <section class="employee-panel journey-panel">
+
+            <header class="employee-panel-header">
+
+                <div>
+
+                    <h2>Jornada de hoje</h2>
+
+                    <p>
+                        Acompanhe as etapas já registradas.
+                    </p>
+
+                </div>
+
+                <div class="journey-percentage">
+
+                    <strong id="porcentagemJornada">
+                        0%
+                    </strong>
+
+                    <span>concluído</span>
+
+                </div>
+
+            </header>
+
+            <div class="journey-progress">
+
+                <div class="journey-progress-track">
+
+                    <div
+                        id="barraProgressoJornada"
+                        class="journey-progress-bar">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="journey-steps">
+
+                <article
+                    id="etapaEntrada"
+                    class="journey-step">
+
+                    <div class="journey-step-icon">
+
+                        <i class="fa-solid fa-right-to-bracket"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Entrada</strong>
+
+                        <span id="horarioEntrada">
+                            Pendente
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <div class="journey-line"></div>
+
+                <article
+                    id="etapaSaidaAlmoco"
+                    class="journey-step">
+
+                    <div class="journey-step-icon">
+
+                        <i class="fa-solid fa-utensils"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Saída para almoço</strong>
+
+                        <span id="horarioSaidaAlmoco">
+                            Pendente
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <div class="journey-line"></div>
+
+                <article
+                    id="etapaVoltaAlmoco"
+                    class="journey-step">
+
+                    <div class="journey-step-icon">
+
+                        <i class="fa-solid fa-person-walking-arrow-right"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Volta do almoço</strong>
+
+                        <span id="horarioVoltaAlmoco">
+                            Pendente
+                        </span>
+
+                    </div>
+
+                </article>
+
+                <div class="journey-line"></div>
+
+                <article
+                    id="etapaSaida"
+                    class="journey-step">
+
+                    <div class="journey-step-icon">
+
+                        <i class="fa-solid fa-door-open"></i>
+
+                    </div>
+
+                    <div>
+
+                        <strong>Saída</strong>
+
+                        <span id="horarioSaida">
+                            Pendente
+                        </span>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- HISTÓRICO -->
+
+        <section class="employee-panel">
+
+            <header class="employee-panel-header">
+
+                <div>
+
+                    <h2>Registros recentes</h2>
+
+                    <p>
+                        Histórico das suas últimas atividades.
+                    </p>
+
+                </div>
+
+                <select id="filtroHistoricoFuncionario">
+
+                    <option value="7">
+                        Últimos 7 dias
+                    </option>
+
+                    <option value="30">
+                        Últimos 30 dias
+                    </option>
+
+                    <option value="todos">
+                        Todos os registros
+                    </option>
+
+                </select>
+
+            </header>
+
+            <div class="table-container">
+
+                <table class="employees-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Data</th>
+
+                            <th>Horário</th>
+
+                            <th>Momento</th>
+
+                            <th>Estado atual</th>
+
+                            <th>Observação</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaHistoricoFuncionario">
+
+                        <!-- Preenchido pelo funcionario.js -->
+
+                    </tbody>
+
+                </table>
+
+                <div
+                    id="historicoFuncionarioVazio"
+                    class="empty-state">
+
+                    <i class="fa-regular fa-folder-open"></i>
+
+                    <h3>Nenhum registro encontrado</h3>
+
+                    <p>
+                        Seus registros aparecerão aqui.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- MODAL PARA BATER PONTO -->
+
+<div
+    id="modalPonto"
+    class="modal-overlay">
+
+    <div class="modal-card point-modal fade">
+
+        <header class="modal-header">
+
+            <div>
+
+                <span class="page-label">
+                    Registro da jornada
+                </span>
+
+                <h2>Bater ponto</h2>
+
+            </div>
+
+            <button
+                id="btnFecharModalPonto"
+                class="modal-close"
+                type="button"
+                aria-label="Fechar">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </header>
+
+        <form id="formPonto">
+
+            <div class="point-moment-card">
+
+                <div>
+
+                    <i class="fa-regular fa-clock"></i>
+
+                </div>
+
+                <section>
+
+                    <span>Momento da jornada</span>
+
+                    <strong id="momentoPonto">
+                        Entrada
+                    </strong>
+
+                </section>
+
+            </div>
+
+            <fieldset class="psychosocial-fieldset">
+
+                <legend>
+                    Como você está neste momento?
+                </legend>
+
+                <p>
+                    Selecione o estado que melhor representa sua situação atual.
+                </p>
+
+                <div class="state-options">
+
+                    <label class="state-option disposto">
+
+                        <input
+                            type="radio"
+                            name="estadoPonto"
+                            value="Disposto"
+                            required>
+
+                        <span class="state-option-content">
+
+                            <i class="fa-solid fa-face-smile"></i>
+
+                            <strong>Disposto</strong>
+
+                            <small>
+                                Estou bem e preparado.
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                    <label class="state-option neutro">
+
+                        <input
+                            type="radio"
+                            name="estadoPonto"
+                            value="Neutro"
+                            required>
+
+                        <span class="state-option-content">
+
+                            <i class="fa-solid fa-face-meh"></i>
+
+                            <strong>Neutro</strong>
+
+                            <small>
+                                Estou em um estado intermediário.
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                    <label class="state-option sobrecarregado">
+
+                        <input
+                            type="radio"
+                            name="estadoPonto"
+                            value="Sobrecarregado"
+                            required>
+
+                        <span class="state-option-content">
+
+                            <i class="fa-solid fa-face-tired"></i>
+
+                            <strong>Sobrecarregado</strong>
+
+                            <small>
+                                Estou cansado ou sob pressão.
+                            </small>
+
+                        </span>
+
+                    </label>
+
+                </div>
+
+            </fieldset>
+
+            <div class="input-group">
+
+                <label for="observacaoPonto">
+
+                    Observação
+
+                    <small>
+                        Opcional
+                    </small>
+
+                </label>
+
+                <div class="textarea-box">
+
+                    <i class="fa-regular fa-message"></i>
+
+                    <textarea
+                        id="observacaoPonto"
+                        maxlength="250"
+                        placeholder="Escreva uma observação breve, caso necessário."></textarea>
+
+                </div>
+
+                <span
+                    id="contadorObservacao"
+                    class="character-counter">
+
+                    0/250
+
+                </span>
+
+            </div>
+
+            <div class="modal-actions">
+
+                <button
+                    id="btnCancelarPonto"
+                    class="secondary-button"
+                    type="button">
+
+                    Cancelar
+
+                </button>
+
+                <button
+                    class="action-button"
+                    type="submit">
+
+                    <i class="fa-solid fa-check"></i>
+
+                    Confirmar registro
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+<script src="js/banco.js"></script>
+<script src="js/funcionario.js"></script>
+
+</body>
+
+</html>

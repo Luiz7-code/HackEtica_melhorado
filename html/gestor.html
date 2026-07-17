@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>Painel do Gestor | Gestão Saudável</title>
+
+    <link rel="icon" href="img/favicon.png">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+<div class="app-layout">
+
+    <!-- BARRA LATERAL -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-chart-simple"></i>
+            </div>
+
+            <div>
+                <h2>Gestão Saudável</h2>
+                <span>Painel empresarial</span>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-menu">
+
+            <button
+                class="menu-item ativo"
+                data-pagina="dashboard">
+
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+
+            </button>
+
+            <button
+                class="menu-item"
+                data-pagina="funcionarios">
+
+                <i class="fa-solid fa-users"></i>
+                <span>Funcionários</span>
+
+            </button>
+
+            <button
+                class="menu-item"
+                data-pagina="relatorios">
+
+                <i class="fa-solid fa-chart-line"></i>
+                <span>Relatórios</span>
+
+            </button>
+
+            <button
+                class="menu-item"
+                data-pagina="empresa">
+
+                <i class="fa-solid fa-building"></i>
+                <span>Empresa</span>
+
+            </button>
+
+        </nav>
+
+        <button id="btnSair" class="sidebar-logout">
+
+            <i class="fa-solid fa-arrow-right-from-bracket"></i>
+            <span>Sair</span>
+
+        </button>
+
+    </aside>
+
+    <!-- CONTEÚDO -->
+
+    <main class="app-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="topbar-label">
+                    Painel do Gestor
+                </p>
+
+                <h1>
+                    Olá,
+                    <span id="nomeGestor">Gestor</span>
+                </h1>
+
+                <p id="dataAtual" class="topbar-date"></p>
+
+            </div>
+
+            <div class="topbar-company">
+
+                <div class="company-icon">
+
+                    <i class="fa-solid fa-building"></i>
+
+                </div>
+
+                <div>
+
+                    <strong id="nomeEmpresa">
+                        Empresa
+                    </strong>
+
+                    <span id="ramoEmpresa">
+                        Área de atuação
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+        <!-- DASHBOARD -->
+
+        <section
+            id="dashboard"
+            class="app-page ativa">
+
+            <div class="dashboard-status">
+
+                <div class="status-main">
+
+                    <div
+                        id="statusEmpresaIcone"
+                        class="status-main-icon">
+
+                        <i class="fa-solid fa-circle-check"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>Situação atual</span>
+
+                        <h2 id="statusEmpresaTitulo">
+                            Saúde psicossocial estável
+                        </h2>
+
+                        <p id="statusEmpresaTexto">
+                            Os indicadores da empresa estão dentro do esperado.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="status-update">
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    <div>
+
+                        <span>Última atualização</span>
+
+                        <strong id="ultimaAtualizacao">
+                            Agora
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- INDICADORES -->
+
+            <div class="dashboard-cards">
+
+                <article class="metric-card metric-primary">
+
+                    <div class="metric-icon">
+
+                        <i class="fa-solid fa-chart-line"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>ICPO</span>
+
+                        <strong id="valorIcpo">
+                            0
+                        </strong>
+
+                        <small id="variacaoIcpo">
+                            Índice organizacional
+                        </small>
+
+                    </div>
+
+                </article>
+
+                <article class="metric-card metric-orange">
+
+                    <div class="metric-icon">
+
+                        <i class="fa-solid fa-bullseye"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>ICPR</span>
+
+                        <strong id="valorIcpr">
+                            80
+                        </strong>
+
+                        <small>
+                            Índice de referência
+                        </small>
+
+                    </div>
+
+                </article>
+
+                <article class="metric-card metric-blue">
+
+                    <div class="metric-icon">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>Funcionários</span>
+
+                        <strong id="totalFuncionarios">
+                            0
+                        </strong>
+
+                        <small>
+                            Contas ativas
+                        </small>
+
+                    </div>
+
+                </article>
+
+                <article class="metric-card metric-purple">
+
+                    <div class="metric-icon">
+
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>Registros hoje</span>
+
+                        <strong id="registrosHoje">
+                            0
+                        </strong>
+
+                        <small>
+                            Registros de jornada
+                        </small>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <!-- GRÁFICO E ESTADOS -->
+
+            <div class="dashboard-grid">
+
+                <article class="dashboard-panel chart-panel">
+
+                    <header class="panel-header">
+
+                        <div>
+
+                            <h2>Evolução do ICPO</h2>
+
+                            <p>
+                                Acompanhamento dos últimos sete dias.
+                            </p>
+
+                        </div>
+
+                        <select id="periodoGrafico">
+
+                            <option value="7">
+                                7 dias
+                            </option>
+
+                            <option value="30">
+                                30 dias
+                            </option>
+
+                        </select>
+
+                    </header>
+
+                    <div class="chart-container">
+
+                        <canvas id="graficoIcpo"></canvas>
+
+                    </div>
+
+                </article>
+
+                <article class="dashboard-panel states-panel">
+
+                    <header class="panel-header">
+
+                        <div>
+
+                            <h2>Estado atual</h2>
+
+                            <p>
+                                Último registro de cada funcionário.
+                            </p>
+
+                        </div>
+
+                    </header>
+
+                    <div class="state-list">
+
+                        <div class="state-item disposto">
+
+                            <div class="state-label">
+
+                                <span class="state-dot"></span>
+
+                                <div>
+
+                                    <strong>Dispostos</strong>
+
+                                    <small>
+                                        Estado positivo
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <span id="totalDispostos">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div class="state-item neutro">
+
+                            <div class="state-label">
+
+                                <span class="state-dot"></span>
+
+                                <div>
+
+                                    <strong>Neutros</strong>
+
+                                    <small>
+                                        Estado intermediário
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <span id="totalNeutros">
+                                0
+                            </span>
+
+                        </div>
+
+                        <div class="state-item sobrecarregado">
+
+                            <div class="state-label">
+
+                                <span class="state-dot"></span>
+
+                                <div>
+
+                                    <strong>Sobrecarregados</strong>
+
+                                    <small>
+                                        Necessita atenção
+                                    </small>
+
+                                </div>
+
+                            </div>
+
+                            <span id="totalSobrecarregados">
+                                0
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+                        <!-- ÚLTIMOS REGISTROS E RECOMENDAÇÕES -->
+
+                        <div class="dashboard-bottom-grid">
+
+                            <article class="dashboard-panel">
+            
+                                <header class="panel-header">
+            
+                                    <div>
+            
+                                        <h2>Últimos registros</h2>
+            
+                                        <p>
+                                            Atividades recentes dos funcionários.
+                                        </p>
+            
+                                    </div>
+            
+                                    <button
+                                        class="panel-link"
+                                        data-abrir-pagina="relatorios">
+            
+                                        Ver todos
+            
+                                        <i class="fa-solid fa-arrow-right"></i>
+            
+                                    </button>
+            
+                                </header>
+            
+                                <div
+                                    id="listaUltimosRegistros"
+                                    class="recent-records">
+            
+                                    <div class="empty-state">
+            
+                                        <i class="fa-regular fa-folder-open"></i>
+            
+                                        <h3>Nenhum registro encontrado</h3>
+            
+                                        <p>
+                                            Os registros dos funcionários aparecerão aqui.
+                                        </p>
+            
+                                    </div>
+            
+                                </div>
+            
+                            </article>
+            
+                            <article class="dashboard-panel">
+            
+                                <header class="panel-header">
+            
+                                    <div>
+            
+                                        <h2>Recomendações</h2>
+            
+                                        <p>
+                                            Sugestões baseadas nos indicadores atuais.
+                                        </p>
+            
+                                    </div>
+            
+                                </header>
+            
+                                <div
+                                    id="listaRecomendacoes"
+                                    class="recommendation-list">
+            
+                                    <div class="recommendation-item recommendation-success">
+            
+                                        <div class="recommendation-icon">
+            
+                                            <i class="fa-solid fa-circle-check"></i>
+            
+                                        </div>
+            
+                                        <div>
+            
+                                            <strong>
+                                                Indicadores estáveis
+                                            </strong>
+            
+                                            <p>
+                                                Continue acompanhando os registros da equipe.
+                                            </p>
+            
+                                        </div>
+            
+                                    </div>
+            
+                                </div>
+            
+                            </article>
+            
+                        </div>
+            
+                    </section>
+            
+                    <!-- FUNCIONÁRIOS -->
+            
+                    <section
+                        id="funcionarios"
+                        class="app-page">
+            
+                        <header class="page-header">
+            
+                            <div>
+            
+                                <span class="page-label">
+                                    Gestão da equipe
+                                </span>
+            
+                                <h2>Funcionários</h2>
+            
+                                <p>
+                                    Cadastre e acompanhe os funcionários da empresa.
+                                </p>
+            
+                            </div>
+            
+                            <button
+                                id="btnNovoFuncionario"
+                                class="action-button">
+            
+                                <i class="fa-solid fa-user-plus"></i>
+            
+                                Novo funcionário
+            
+                            </button>
+            
+                        </header>
+            
+                        <div class="employees-summary">
+            
+                            <article class="summary-card">
+            
+                                <div class="summary-icon summary-blue">
+            
+                                    <i class="fa-solid fa-users"></i>
+            
+                                </div>
+            
+                                <div>
+            
+                                    <span>Total de funcionários</span>
+            
+                                    <strong id="resumoTotalFuncionarios">
+                                        0
+                                    </strong>
+            
+                                </div>
+            
+                            </article>
+            
+                            <article class="summary-card">
+            
+                                <div class="summary-icon summary-green">
+            
+                                    <i class="fa-solid fa-user-check"></i>
+            
+                                </div>
+            
+                                <div>
+            
+                                    <span>Contas ativas</span>
+            
+                                    <strong id="resumoFuncionariosAtivos">
+                                        0
+                                    </strong>
+            
+                                </div>
+            
+                            </article>
+            
+                            <article class="summary-card">
+            
+                                <div class="summary-icon summary-orange">
+            
+                                    <i class="fa-solid fa-clock"></i>
+            
+                                </div>
+            
+                                <div>
+            
+                                    <span>Registraram hoje</span>
+            
+                                    <strong id="resumoRegistrosHoje">
+                                        0
+                                    </strong>
+            
+                                </div>
+            
+                            </article>
+            
+                        </div>
+            
+                        <article class="dashboard-panel employees-panel">
+            
+                            <div class="employees-toolbar">
+            
+                                <div class="search-box">
+            
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+            
+                                    <input
+                                        type="search"
+                                        id="buscaFuncionario"
+                                        placeholder="Buscar por nome, setor ou cargo">
+            
+                                </div>
+            
+                                <select id="filtroSetor">
+            
+                                    <option value="">
+                                        Todos os setores
+                                    </option>
+            
+                                </select>
+            
+                            </div>
+            
+                            <div class="table-container">
+            
+                                <table class="employees-table">
+            
+                                    <thead>
+            
+                                        <tr>
+            
+                                            <th>Funcionário</th>
+            
+                                            <th>Setor</th>
+            
+                                            <th>Cargo</th>
+            
+                                            <th>Estado atual</th>
+            
+                                            <th>Último registro</th>
+            
+                                            <th>Ações</th>
+            
+                                        </tr>
+            
+                                    </thead>
+            
+                                    <tbody id="tabelaFuncionarios">
+            
+                                        <!-- Preenchido pelo gestor.js -->
+            
+                                    </tbody>
+            
+                                </table>
+            
+                                <div
+                                    id="funcionariosVazio"
+                                    class="empty-state">
+            
+                                    <i class="fa-solid fa-users-slash"></i>
+            
+                                    <h3>Nenhum funcionário cadastrado</h3>
+            
+                                    <p>
+                                        Cadastre o primeiro funcionário da empresa.
+                                    </p>
+            
+                                </div>
+            
+                            </div>
+            
+                        </article>
+            
+                    </section>
+                            <!-- RELATÓRIOS -->
+
+        <section
+        id="relatorios"
+        class="app-page">
+
+        <header class="page-header">
+
+            <div>
+
+                <span class="page-label">
+                    Análise da equipe
+                </span>
+
+                <h2>Relatórios</h2>
+
+                <p>
+                    Consulte os registros e indicadores dos funcionários.
+                </p>
+
+            </div>
+
+            <button
+                id="btnExportarRelatorio"
+                class="action-button">
+
+                <i class="fa-solid fa-file-arrow-down"></i>
+
+                Exportar relatório
+
+            </button>
+
+        </header>
+
+        <article class="dashboard-panel">
+
+            <div class="reports-toolbar">
+
+                <div class="input-group">
+
+                    <label for="filtroDataInicio">
+                        Data inicial
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <input
+                            type="date"
+                            id="filtroDataInicio">
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label for="filtroDataFim">
+                        Data final
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-regular fa-calendar-check"></i>
+
+                        <input
+                            type="date"
+                            id="filtroDataFim">
+
+                    </div>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label for="filtroEstado">
+                        Estado atual
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-heart-pulse"></i>
+
+                        <select id="filtroEstado">
+
+                            <option value="">
+                                Todos os estados
+                            </option>
+
+                            <option value="Disposto">
+                                Disposto
+                            </option>
+
+                            <option value="Neutro">
+                                Neutro
+                            </option>
+
+                            <option value="Sobrecarregado">
+                                Sobrecarregado
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <button
+                    id="btnFiltrarRelatorios"
+                    class="filter-button">
+
+                    <i class="fa-solid fa-filter"></i>
+
+                    Filtrar
+
+                </button>
+
+            </div>
+
+        </article>
+
+        <div class="report-cards">
+
+            <article class="report-card">
+
+                <span>Registros encontrados</span>
+
+                <strong id="totalRegistrosRelatorio">
+                    0
+                </strong>
+
+            </article>
+
+            <article class="report-card">
+
+                <span>Média do ICPO</span>
+
+                <strong id="mediaIcpoRelatorio">
+                    0
+                </strong>
+
+            </article>
+
+            <article class="report-card">
+
+                <span>Funcionários monitorados</span>
+
+                <strong id="funcionariosMonitorados">
+                    0
+                </strong>
+
+            </article>
+
+        </div>
+
+        <article class="dashboard-panel">
+
+            <div class="table-container">
+
+                <table class="employees-table">
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Data</th>
+
+                            <th>Horário</th>
+
+                            <th>Funcionário</th>
+
+                            <th>Momento</th>
+
+                            <th>Estado atual</th>
+
+                            <th>Observação</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tabelaRelatorios">
+
+                        <!-- Preenchido pelo gestor.js -->
+
+                    </tbody>
+
+                </table>
+
+                <div
+                    id="relatoriosVazio"
+                    class="empty-state">
+
+                    <i class="fa-regular fa-folder-open"></i>
+
+                    <h3>Nenhum registro encontrado</h3>
+
+                    <p>
+                        Os registros da equipe aparecerão aqui.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </article>
+
+    </section>
+
+    <!-- EMPRESA -->
+
+    <section
+        id="empresa"
+        class="app-page">
+
+        <header class="page-header">
+
+            <div>
+
+                <span class="page-label">
+                    Informações da organização
+                </span>
+
+                <h2>Empresa</h2>
+
+                <p>
+                    Consulte os dados cadastrados da empresa.
+                </p>
+
+            </div>
+
+        </header>
+
+        <div class="company-page-grid">
+
+            <article class="dashboard-panel company-profile">
+
+                <div class="company-profile-icon">
+
+                    <i class="fa-solid fa-building"></i>
+
+                </div>
+
+                <div>
+
+                    <span>Empresa</span>
+
+                    <h2 id="empresaPerfilNome">
+                        Empresa
+                    </h2>
+
+                    <p id="empresaPerfilRamo">
+                        Área de atuação
+                    </p>
+
+                </div>
+
+            </article>
+
+            <article class="dashboard-panel company-details">
+
+                <header class="panel-header">
+
+                    <div>
+
+                        <h2>Dados da empresa</h2>
+
+                        <p>
+                            Informações registradas no sistema.
+                        </p>
+
+                    </div>
+
+                </header>
+
+                <div class="company-data-list">
+
+                    <div class="company-data-item">
+
+                        <i class="fa-solid fa-building"></i>
+
+                        <div>
+
+                            <span>Nome da empresa</span>
+
+                            <strong id="empresaDadosNome">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="company-data-item">
+
+                        <i class="fa-solid fa-file-lines"></i>
+
+                        <div>
+
+                            <span>CNPJ</span>
+
+                            <strong id="empresaDadosCnpj">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="company-data-item">
+
+                        <i class="fa-solid fa-briefcase"></i>
+
+                        <div>
+
+                            <span>Área de atuação</span>
+
+                            <strong id="empresaDadosRamo">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                    <div class="company-data-item">
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <div>
+
+                            <span>Data de cadastro</span>
+
+                            <strong id="empresaDadosCadastro">
+                                —
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+</main>
+
+</div>
+
+<!-- MODAL DE FUNCIONÁRIO -->
+
+<div
+id="modalFuncionario"
+class="modal-overlay">
+
+<div class="modal-card fade">
+
+    <header class="modal-header">
+
+        <div>
+
+            <span class="page-label">
+                Gestão da equipe
+            </span>
+
+            <h2 id="tituloModalFuncionario">
+                Novo funcionário
+            </h2>
+
+        </div>
+
+        <button
+            id="btnFecharModal"
+            class="modal-close"
+            type="button"
+            aria-label="Fechar">
+
+            <i class="fa-solid fa-xmark"></i>
+
+        </button>
+
+    </header>
+
+    <form id="formFuncionario">
+
+        <input
+            type="hidden"
+            id="funcionarioId">
+
+        <div class="form-grid">
+
+            <div class="input-group form-full">
+
+                <label for="nomeFuncionario">
+                    Nome completo
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-user"></i>
+
+                    <input
+                        type="text"
+                        id="nomeFuncionario"
+                        placeholder="Nome do funcionário"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="setorFuncionario">
+                    Setor
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-people-group"></i>
+
+                    <input
+                        type="text"
+                        id="setorFuncionario"
+                        placeholder="Ex.: Financeiro"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="cargoFuncionario">
+                    Cargo
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-briefcase"></i>
+
+                    <input
+                        type="text"
+                        id="cargoFuncionario"
+                        placeholder="Ex.: Assistente"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="usuarioFuncionario">
+                    Usuário
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-at"></i>
+
+                    <input
+                        type="text"
+                        id="usuarioFuncionario"
+                        placeholder="Usuário para login"
+                        required>
+
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label for="senhaFuncionario">
+                    Senha
+                </label>
+
+                <div class="input-box">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="senhaFuncionario"
+                        placeholder="Mínimo de 4 caracteres"
+                        minlength="4"
+                        required>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="modal-actions">
+
+            <button
+                id="btnCancelarFuncionario"
+                class="secondary-button"
+                type="button">
+
+                Cancelar
+
+            </button>
+
+            <button
+                class="action-button"
+                type="submit">
+
+                <i class="fa-solid fa-floppy-disk"></i>
+
+                Salvar funcionário
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script src="js/banco.js"></script>
+<script src="js/gestor.js"></script>
+
+</body>
+
+</html>
