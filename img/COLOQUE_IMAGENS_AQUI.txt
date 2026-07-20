@@ -1,0 +1,5 @@
+A pasta de imagens pode receber futuramente:
+- logo.png
+- favicon.png
+
+O login possui um ícone alternativo e funciona mesmo sem esses arquivos.

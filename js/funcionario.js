@@ -7,6 +7,7 @@ let empresaAtual = null;
 let funcionarioAtual = null;
 let temporizadorMensagem = null;
 let registroEmAndamento = false;
+let temporizadorRelogio = null;
 
 const MOMENTOS_JORNADA = [
     {
@@ -50,7 +51,54 @@ function iniciarAreaFuncionario() {
 
     configurarEventos();
 
+    iniciarRelogio();
+
     atualizarTela();
+
+}
+
+/* =====================================================
+   RELÓGIO EM TEMPO REAL
+===================================================== */
+
+function iniciarRelogio() {
+
+    atualizarRelogio();
+
+    if (temporizadorRelogio) {
+
+        clearInterval(temporizadorRelogio);
+
+    }
+
+    temporizadorRelogio = setInterval(
+        atualizarRelogio,
+        1000
+    );
+
+}
+
+function atualizarRelogio() {
+
+    const relogio = document.getElementById(
+        "relogioFuncionario"
+    );
+
+    if (!relogio) {
+        return;
+    }
+
+    const agora = new Date();
+
+    relogio.textContent = agora.toLocaleTimeString(
+        "pt-BR",
+        {
+            hour: "2-digit",
+            minute: "2-digit",
+            second: "2-digit",
+            hour12: false
+        }
+    );
 
 }
 

@@ -2188,9 +2188,9 @@ body.modal-aberto{
     z-index:1000;
     min-height:78px;
     padding:14px 5%;
-    display:flex;
+    display:grid;
+    grid-template-columns:minmax(220px,1fr) auto minmax(220px,1fr);
     align-items:center;
-    justify-content:space-between;
     gap:25px;
     border-bottom:1px solid rgba(229,231,235,.8);
     background:rgba(255,255,255,.92);
@@ -2199,6 +2199,7 @@ body.modal-aberto{
 }
 
 .employee-brand{
+    justify-self:start;
     display:flex;
     align-items:center;
     gap:13px;
@@ -2236,7 +2237,61 @@ body.modal-aberto{
     font-size:12px;
 }
 
+
+.employee-clock{
+    min-width:170px;
+    padding:9px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    border:1px solid rgba(91,95,239,.16);
+    border-radius:14px;
+    background:linear-gradient(
+        135deg,
+        rgba(91,95,239,.10),
+        rgba(123,97,255,.05)
+    );
+    box-shadow:0 6px 18px rgba(91,95,239,.08);
+}
+
+.employee-clock-icon{
+    width:35px;
+    height:35px;
+    flex:0 0 35px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:11px;
+    background:#FFF;
+    color:var(--primary);
+    font-size:15px;
+    box-shadow:0 4px 12px rgba(91,95,239,.12);
+}
+
+.employee-clock-content span,
+.employee-clock-content strong{
+    display:block;
+}
+
+.employee-clock-content span{
+    color:var(--text-light);
+    font-size:9px;
+    font-weight:500;
+    letter-spacing:.3px;
+    text-transform:uppercase;
+}
+
+.employee-clock-content strong{
+    margin-top:1px;
+    color:var(--text);
+    font-size:17px;
+    font-variant-numeric:tabular-nums;
+    letter-spacing:.5px;
+}
+
 .employee-user{
+    justify-self:end;
     display:flex;
     align-items:center;
     gap:12px;
@@ -2938,6 +2993,29 @@ body.modal-aberto{
 
     .employee-topbar{
         padding:12px 16px;
+        grid-template-columns:auto 1fr auto;
+        gap:10px;
+    }
+
+    .employee-clock{
+        min-width:135px;
+        padding:7px 10px;
+        justify-self:center;
+    }
+
+    .employee-clock-icon{
+        width:31px;
+        height:31px;
+        flex-basis:31px;
+        font-size:13px;
+    }
+
+    .employee-clock-content span{
+        font-size:8px;
+    }
+
+    .employee-clock-content strong{
+        font-size:14px;
     }
 
     .employee-brand span,
@@ -3009,6 +3087,25 @@ body.modal-aberto{
 }
 
 @media(max-width:480px){
+
+    .employee-topbar{
+        grid-template-columns:auto 1fr auto;
+    }
+
+    .employee-clock{
+        min-width:96px;
+        padding:7px 9px;
+    }
+
+    .employee-clock-icon,
+    .employee-clock-content span{
+        display:none;
+    }
+
+    .employee-clock-content strong{
+        margin:0;
+        font-size:13px;
+    }
 
     .employee-brand strong{
         font-size:14px;
