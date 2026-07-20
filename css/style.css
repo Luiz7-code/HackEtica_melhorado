@@ -3864,3 +3864,238 @@ body.modal-aberto{
     transform:none;
     box-shadow:none;
 }
+
+/* =====================================================
+   LOGIN COMPACTO
+===================================================== */
+
+@media (min-width:941px){
+
+    .modern-login-page{
+        min-height:100dvh;
+        padding:18px;
+    }
+
+    .modern-login-shell{
+        width:min(1360px,100%);
+        height:calc(100dvh - 36px);
+        min-height:0;
+        max-height:820px;
+        grid-template-columns:minmax(0,1.05fr) minmax(420px,.95fr);
+        border-radius:24px;
+    }
+
+    .login-visual-panel{
+        padding:32px 40px 24px;
+    }
+
+    .brand-lockup{
+        gap:18px;
+    }
+
+    .brand-logo,
+    .brand-logo-fallback{
+        width:82px;
+        height:82px;
+        flex-basis:82px;
+        border-radius:23px;
+    }
+
+    .brand-logo-fallback{
+        font-size:34px;
+    }
+
+    .brand-lockup h1{
+        font-size:35px;
+    }
+
+    .brand-lockup p{
+        max-width:340px;
+        margin-top:7px;
+        font-size:16px;
+        line-height:1.4;
+    }
+
+    .visual-dashboard-card{
+        width:94%;
+        min-height:330px;
+        margin:18px auto 14px;
+        border-radius:18px;
+    }
+
+    .visual-dashboard-topbar{
+        height:34px;
+        border-radius:18px 18px 0 0;
+    }
+
+    .visual-chart-bubble{
+        top:-20px;
+        right:-18px;
+        width:56px;
+        height:56px;
+        font-size:21px;
+        border-radius:15px 15px 15px 4px;
+    }
+
+    .visual-dashboard-content{
+        min-height:296px;
+        padding:17px 18px 0;
+        grid-template-rows:108px 62px 1fr;
+        gap:11px;
+    }
+
+    .visual-wellbeing-card,
+    .visual-line-card{
+        padding:12px;
+    }
+
+    .visual-wellbeing-content{
+        height:73px;
+    }
+
+    .visual-donut{
+        width:55px;
+        height:55px;
+    }
+
+    .visual-donut::after{
+        inset:10px;
+    }
+
+    .visual-wellbeing-content strong{
+        font-size:22px;
+    }
+
+    .visual-line-chart{
+        height:70px;
+    }
+
+    .visual-line-chart svg{
+        height:65px;
+    }
+
+    .visual-metrics-row{
+        gap:10px;
+    }
+
+    .visual-metrics-row article{
+        padding:9px 11px;
+        grid-template-columns:31px 1fr;
+        column-gap:8px;
+    }
+
+    .visual-metric-icon{
+        width:31px;
+        height:31px;
+        font-size:13px;
+    }
+
+    .visual-metrics-row strong{
+        font-size:14px;
+    }
+
+    .visual-people-scene{
+        min-height:105px;
+        transform:scale(.78);
+        transform-origin:center bottom;
+    }
+
+    .login-feature-row{
+        gap:9px;
+    }
+
+    .login-feature-row article{
+        gap:7px;
+        font-size:9px;
+    }
+
+    .feature-icon{
+        width:34px;
+        height:34px;
+        flex-basis:34px;
+        border-radius:10px;
+        font-size:14px;
+    }
+
+    .login-form-panel{
+        padding:36px 55px;
+    }
+
+    .language-chip{
+        top:23px;
+        right:34px;
+        font-size:12px;
+    }
+
+    .login-form-card{
+        width:min(100%,500px);
+    }
+
+    .login-form-card header{
+        margin-bottom:23px;
+    }
+
+    .login-eyebrow{
+        margin-bottom:4px;
+        font-size:11px;
+    }
+
+    .login-form-card h2{
+        font-size:32px;
+    }
+
+    .login-form-card header p{
+        margin-top:6px;
+        font-size:12px;
+    }
+
+    .modern-input-group{
+        margin-bottom:14px;
+    }
+
+    .modern-input-group label{
+        font-size:13px;
+    }
+
+    .modern-input-box{
+        height:53px;
+        padding:0 16px;
+    }
+
+    .modern-input-box > i{
+        font-size:17px;
+    }
+
+    .modern-input-box input{
+        font-size:14px;
+    }
+
+    .remember-company{
+        margin:0 0 17px;
+        font-size:12px;
+    }
+
+    .remember-company input{
+        width:16px;
+        height:16px;
+    }
+
+    .modern-login-button{
+        height:54px;
+        font-size:15px;
+    }
+
+    .login-divider{
+        margin:22px 0 16px;
+    }
+
+    .modern-register-text{
+        font-size:12px;
+    }
+
+    .modern-register-text a{
+        margin-top:3px;
+        font-size:14px;
+    }
+
+}

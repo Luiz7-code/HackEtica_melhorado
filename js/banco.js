@@ -6,6 +6,206 @@
 const CHAVE_EMPRESAS = "empresas";
 const CHAVE_USUARIO = "usuarioLogado";
 const CHAVE_EMPRESA = "empresaAtual";
+const CHAVE_VERSAO_BANCO = "versaoBanco";
+const VERSAO_BANCO_ATUAL = "logicomp-6-funcionarios-v1";
+
+/* =====================================================
+   DADOS PADRÃO DO PROJETO
+===================================================== */
+
+function formatarDataBanco(data) {
+    const ano = data.getFullYear();
+    const mes = String(data.getMonth() + 1).padStart(2, "0");
+    const dia = String(data.getDate()).padStart(2, "0");
+
+    return `${ano}-${mes}-${dia}`;
+}
+
+function criarRegistroPadrao(diasAtras, horario, momento, estado, observacao = "") {
+    const data = new Date();
+
+    data.setHours(0, 0, 0, 0);
+    data.setDate(data.getDate() - diasAtras);
+
+    return {
+        id: gerarIdBanco(),
+        data: formatarDataBanco(data),
+        horario,
+        dataHora: `${formatarDataBanco(data)}T${horario}:00`,
+        momento,
+        estado,
+        observacao
+    };
+}
+
+function criarEmpresasPadrao() {
+    const agora = new Date().toISOString();
+
+    return [
+        {
+            id: gerarIdBanco(),
+            nome: "Logicomp",
+            cnpj: "12.345.678/0001-90",
+            ramo: "Tecnologia",
+            dataCadastro: agora,
+            funcionarios: [
+                {
+                    id: gerarIdBanco(),
+                    nome: "Administrador",
+                    usuario: "admin",
+                    senha: "123",
+                    tipo: "gestor",
+                    setor: "Gestão",
+                    cargo: "Gestor",
+                    ativo: true,
+                    dataCadastro: agora,
+                    registros: [],
+                    icpi: 100
+                },
+                {
+                    id: gerarIdBanco(),
+                    nome: "João Silva",
+                    usuario: "joao",
+                    senha: "123",
+                    tipo: "funcionario",
+                    setor: "TI",
+                    cargo: "Desenvolvedor",
+                    ativo: true,
+                    dataCadastro: agora,
+                    registros: [
+                        criarRegistroPadrao(1, "08:02", "Entrada", "Disposto"),
+                        criarRegistroPadrao(1, "12:01", "Saída para almoço", "Neutro"),
+                        criarRegistroPadrao(1, "13:03", "Volta do almoço", "Disposto"),
+                        criarRegistroPadrao(1, "17:32", "Saída", "Neutro"),
+                        criarRegistroPadrao(2, "08:05", "Entrada", "Disposto"),
+                        criarRegistroPadrao(2, "17:29", "Saída", "Disposto")
+                    ],
+                    icpi: 88
+                },
+                {
+                    id: gerarIdBanco(),
+                    nome: "Maria Oliveira",
+                    usuario: "maria",
+                    senha: "123",
+                    tipo: "funcionario",
+                    setor: "RH",
+                    cargo: "Analista de RH",
+                    ativo: true,
+                    dataCadastro: agora,
+                    registros: [
+                        criarRegistroPadrao(1, "08:08", "Entrada", "Neutro"),
+                        criarRegistroPadrao(1, "12:05", "Saída para almoço", "Neutro"),
+                        criarRegistroPadrao(1, "13:01", "Volta do almoço", "Disposto"),
+                        criarRegistroPadrao(1, "17:38", "Saída", "Neutro"),
+                        criarRegistroPadrao(3, "08:00", "Entrada", "Disposto"),
+                        criarRegistroPadrao(3, "17:30", "Saída", "Disposto")
+                    ],
+                    icpi: 72
+                },
+                {
+                    id: gerarIdBanco(),
+                    nome: "Pedro Santos",
+                    usuario: "pedro",
+                    senha: "123",
+                    tipo: "funcionario",
+                    setor: "Financeiro",
+                    cargo: "Analista Financeiro",
+                    ativo: true,
+                    dataCadastro: agora,
+                    registros: [
+                        criarRegistroPadrao(1, "07:56", "Entrada", "Sobrecarregado"),
+                        criarRegistroPadrao(1, "12:00", "Saída para almoço", "Sobrecarregado"),
+                        criarRegistroPadrao(1, "13:00", "Volta do almoço", "Neutro"),
+                        criarRegistroPadrao(1, "17:45", "Saída", "Sobrecarregado"),
+                        criarRegistroPadrao(2, "08:01", "Entrada", "Neutro"),
+                        criarRegistroPadrao(2, "17:41", "Saída", "Neutro")
+                    ],
+                    icpi: 45
+                },
+                {
+                    id: gerarIdBanco(),
+                    nome: "Ana Costa",
+                    usuario: "ana",
+                    senha: "123",
+                    tipo: "funcionario",
+                    setor: "Marketing",
+                    cargo: "Analista de Marketing",
+                    ativo: true,
+                    dataCadastro: agora,
+                    registros: [
+                        criarRegistroPadrao(1, "08:12", "Entrada", "Disposto"),
+                        criarRegistroPadrao(1, "12:10", "Saída para almoço", "Disposto"),
+                        criarRegistroPadrao(1, "13:08", "Volta do almoço", "Disposto"),
+                        criarRegistroPadrao(1, "17:25", "Saída", "Disposto"),
+                        criarRegistroPadrao(4, "08:09", "Entrada", "Neutro"),
+                        criarRegistroPadrao(4, "17:31", "Saída", "Disposto")
+                    ],
+                    icpi: 100
+                },
+                {
+                    id: gerarIdBanco(),
+                    nome: "Lucas Almeida",
+                    usuario: "lucas",
+                    senha: "123",
+                    tipo: "funcionario",
+                    setor: "Produção",
+                    cargo: "Supervisor de Produção",
+                    ativo: true,
+                    dataCadastro: agora,
+                    registros: [
+                        criarRegistroPadrao(1, "07:48", "Entrada", "Neutro"),
+                        criarRegistroPadrao(1, "11:58", "Saída para almoço", "Neutro"),
+                        criarRegistroPadrao(1, "12:57", "Volta do almoço", "Neutro"),
+                        criarRegistroPadrao(1, "17:20", "Saída", "Neutro"),
+                        criarRegistroPadrao(2, "07:50", "Entrada", "Sobrecarregado"),
+                        criarRegistroPadrao(2, "17:22", "Saída", "Neutro")
+                    ],
+                    icpi: 60
+                },
+                {
+                    id: gerarIdBanco(),
+                    nome: "Juliana Ferreira",
+                    usuario: "juliana",
+                    senha: "123",
+                    tipo: "funcionario",
+                    setor: "Comercial",
+                    cargo: "Assistente Comercial",
+                    ativo: true,
+                    dataCadastro: agora,
+                    registros: [
+                        criarRegistroPadrao(1, "08:04", "Entrada", "Disposto"),
+                        criarRegistroPadrao(1, "12:03", "Saída para almoço", "Neutro"),
+                        criarRegistroPadrao(1, "13:05", "Volta do almoço", "Disposto"),
+                        criarRegistroPadrao(1, "17:35", "Saída", "Disposto"),
+                        criarRegistroPadrao(3, "08:02", "Entrada", "Disposto"),
+                        criarRegistroPadrao(3, "17:33", "Saída", "Neutro")
+                    ],
+                    icpi: 86
+                }
+            ]
+        }
+    ];
+}
+
+function inicializarBancoPadrao() {
+    const versaoSalva = localStorage.getItem(CHAVE_VERSAO_BANCO);
+    const empresasExistentes = carregarEmpresas();
+
+    if (
+        versaoSalva === VERSAO_BANCO_ATUAL &&
+        empresasExistentes.length > 0
+    ) {
+        return empresasExistentes;
+    }
+
+    const empresasPadrao = criarEmpresasPadrao();
+
+    salvarEmpresas(empresasPadrao);
+    localStorage.setItem(CHAVE_VERSAO_BANCO, VERSAO_BANCO_ATUAL);
+    encerrarSessao();
+
+    return empresasPadrao;
+}
 
 /* =====================================================
    FUNÇÕES AUXILIARES
@@ -467,3 +667,7 @@ function registrarPonto(nomeEmpresa, usuario, registro) {
         return false;
     }
 }
+
+
+/* Cria as empresas de demonstração somente quando o armazenamento estiver vazio. */
+inicializarBancoPadrao();
