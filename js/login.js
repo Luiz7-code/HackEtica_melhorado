@@ -3,113 +3,143 @@
    LOGIN
 ===================================================== */
 
+const CHAVE_EMPRESA_LEMBRADA = "gestaoSaudavel_lembrarEmpresa";
+
 const formLogin = document.getElementById("formLogin");
+const campoEmpresa = document.getElementById("empresa");
+const campoUsuario = document.getElementById("usuario");
+const campoSenha = document.getElementById("senha");
+const lembrarEmpresa = document.getElementById("lembrarEmpresa");
+const btnMostrarSenha = document.getElementById("btnMostrarSenha");
 
-if (formLogin) {
+iniciarLogin();
 
-    formLogin.addEventListener("submit", realizarLogin);
+function iniciarLogin() {
+    carregarEmpresaLembrada();
 
+    formLogin?.addEventListener("submit", realizarLogin);
+    btnMostrarSenha?.addEventListener("click", alternarVisibilidadeSenha);
 }
 
-/* =====================================================
-   LOGIN
-===================================================== */
+function carregarEmpresaLembrada() {
+    const empresaLembrada = localStorage.getItem(CHAVE_EMPRESA_LEMBRADA);
+
+    if (!empresaLembrada || !campoEmpresa) {
+        return;
+    }
+
+    campoEmpresa.value = empresaLembrada;
+
+    if (lembrarEmpresa) {
+        lembrarEmpresa.checked = true;
+    }
+}
 
 function realizarLogin(event) {
-
     event.preventDefault();
 
-    const empresaNome = document.getElementById("empresa").value.trim();
+    const empresaNome = campoEmpresa?.value.trim() || "";
+    const usuarioNome = campoUsuario?.value.trim() || "";
+    const senha = campoSenha?.value || "";
 
-    const usuarioNome = document.getElementById("usuario").value.trim();
+    if (!empresaNome || !usuarioNome || !senha) {
+        mostrarMensagem("Preencha empresa, usuário e senha.", "erro");
+        return;
+    }
 
-    const senha = document.getElementById("senha").value;
-
-    const empresas = carregarEmpresas();
-
-    const empresa = empresas.find(e =>
-        e.nome.toLowerCase() === empresaNome.toLowerCase()
-    );
+    const empresa = buscarEmpresa(empresaNome);
 
     if (!empresa) {
-
         mostrarMensagem("Empresa não encontrada.", "erro");
-
         return;
-
     }
 
     autenticarUsuario(empresa, usuarioNome, senha);
-
 }
-/* =====================================================
-   AUTENTICAÇÃO
-===================================================== */
 
 function autenticarUsuario(empresa, usuarioNome, senha) {
+    const funcionarios = Array.isArray(empresa.funcionarios)
+        ? empresa.funcionarios
+        : [];
 
-    const usuario = empresa.funcionarios.find(u =>
-        u.usuario === usuarioNome &&
-        u.senha === senha
+    const usuarioNormalizado = usuarioNome.toLowerCase();
+
+    const usuario = funcionarios.find(item =>
+        String(item.usuario || "").trim().toLowerCase() === usuarioNormalizado &&
+        item.senha === senha
     );
 
     if (!usuario) {
-
         mostrarMensagem("Usuário ou senha inválidos.", "erro");
-
         return;
-
     }
 
-    localStorage.setItem("empresaAtual", empresa.nome);
+    if (usuario.ativo === false) {
+        mostrarMensagem("Esta conta está desativada.", "erro");
+        return;
+    }
 
-    localStorage.setItem("usuarioLogado", usuario.usuario);
+    salvarSessao(usuario.usuario, empresa.nome);
+    salvarPreferenciaEmpresa(empresa.nome);
 
     if (usuario.tipo === "gestor") {
-
         window.location.href = "gestor.html";
-
-    } else {
-
-        window.location.href = "funcionario.html";
-
+        return;
     }
 
+    window.location.href = "funcionario.html";
 }
-/* =====================================================
-   MENSAGENS
-===================================================== */
+
+function salvarPreferenciaEmpresa(nomeEmpresa) {
+    if (lembrarEmpresa?.checked) {
+        localStorage.setItem(CHAVE_EMPRESA_LEMBRADA, nomeEmpresa);
+        return;
+    }
+
+    localStorage.removeItem(CHAVE_EMPRESA_LEMBRADA);
+}
+
+function alternarVisibilidadeSenha() {
+    if (!campoSenha || !btnMostrarSenha) {
+        return;
+    }
+
+    const exibindo = campoSenha.type === "text";
+
+    campoSenha.type = exibindo
+        ? "password"
+        : "text";
+
+    btnMostrarSenha.innerHTML = exibindo
+        ? '<i class="fa-regular fa-eye"></i>'
+        : '<i class="fa-regular fa-eye-slash"></i>';
+
+    btnMostrarSenha.setAttribute(
+        "aria-label",
+        exibindo ? "Mostrar senha" : "Ocultar senha"
+    );
+}
 
 function mostrarMensagem(texto, tipo) {
-
     let mensagem = document.querySelector(".mensagem");
 
     if (!mensagem) {
-
         mensagem = document.createElement("div");
-
         mensagem.className = "mensagem";
-
         document.body.appendChild(mensagem);
-
     }
 
     mensagem.textContent = texto;
-
     mensagem.classList.remove("erro", "sucesso", "mostrar");
-
     mensagem.classList.add(tipo);
 
-    setTimeout(() => {
-
+    requestAnimationFrame(() => {
         mensagem.classList.add("mostrar");
+    });
 
-    }, 10);
+    clearTimeout(mensagem._temporizador);
 
-    setTimeout(() => {
-
+    mensagem._temporizador = setTimeout(() => {
         mensagem.classList.remove("mostrar");
-
     }, 3000);
-
 }

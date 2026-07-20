@@ -6,6 +6,7 @@
 let empresaAtual = null;
 let funcionarioAtual = null;
 let temporizadorMensagem = null;
+let registroEmAndamento = false;
 
 const MOMENTOS_JORNADA = [
     {
@@ -814,88 +815,115 @@ function salvarRegistroPonto(event) {
 
     event.preventDefault();
 
-    recarregarDados();
-
-    const proximoMomento = obterProximoMomento();
-
-    if (!proximoMomento) {
-
-        fecharModalPonto();
-
-        mostrarMensagem(
-            "A jornada de hoje já foi concluída.",
-            "erro"
-        );
-
+    if (registroEmAndamento) {
         return;
-
     }
 
-    const estadoSelecionado =
-        document.querySelector(
+    const botaoConfirmar = document.getElementById(
+        "btnConfirmarPonto"
+    );
+
+    try {
+
+        registroEmAndamento = true;
+
+        if (botaoConfirmar) {
+            botaoConfirmar.disabled = true;
+            botaoConfirmar.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                Salvando...
+            `;
+        }
+
+        recarregarDados();
+
+        if (!empresaAtual || !funcionarioAtual) {
+            throw new Error(
+                "Não foi possível localizar os dados da sua conta."
+            );
+        }
+
+        const proximoMomento = obterProximoMomento();
+
+        if (!proximoMomento) {
+            fecharModalPonto();
+            mostrarMensagem(
+                "A jornada de hoje já foi concluída.",
+                "erro"
+            );
+            return;
+        }
+
+        const estadoSelecionado = document.querySelector(
             'input[name="estadoPonto"]:checked'
         );
 
-    const observacao = document.getElementById(
-        "observacaoPonto"
-    )?.value.trim() || "";
+        if (!estadoSelecionado) {
+            mostrarMensagem(
+                "Selecione seu estado atual.",
+                "erro"
+            );
+            return;
+        }
 
-    if (!estadoSelecionado) {
+        const observacao = document.getElementById(
+            "observacaoPonto"
+        )?.value.trim() || "";
+
+        const agora = new Date();
+
+        const registro = {
+            id: gerarIdRegistro(),
+            data: formatarDataChave(agora),
+            horario: formatarHorario(agora),
+            dataHora: agora.toISOString(),
+            momento: proximoMomento.nome,
+            estado: estadoSelecionado.value,
+            observacao
+        };
+
+        const registroSalvo = registrarPonto(
+            empresaAtual.nome,
+            funcionarioAtual.usuario,
+            registro
+        );
+
+        if (!registroSalvo) {
+            throw new Error(
+                "Não foi possível salvar o registro. Atualize a página e tente novamente."
+            );
+        }
+
+        fecharModalPonto();
+        atualizarTela();
 
         mostrarMensagem(
-            "Selecione seu estado atual.",
+            `${proximoMomento.nome} registrado com sucesso.`,
+            "sucesso"
+        );
+
+    } catch (erro) {
+
+        console.error("Erro ao confirmar o registro:", erro);
+
+        mostrarMensagem(
+            erro?.message || "Ocorreu um erro ao salvar o registro.",
             "erro"
         );
 
-        return;
+    } finally {
+
+        registroEmAndamento = false;
+
+        if (botaoConfirmar) {
+            botaoConfirmar.disabled = false;
+            botaoConfirmar.innerHTML = `
+                <i class="fa-solid fa-check"></i>
+                Confirmar registro
+            `;
+        }
 
     }
-
-    const agora = new Date();
-
-    const registro = {
-
-        id: gerarIdRegistro(),
-
-        data: formatarDataChave(agora),
-
-        horario: formatarHorario(agora),
-
-        dataHora: agora.toISOString(),
-
-        momento: proximoMomento.nome,
-
-        estado: estadoSelecionado.value,
-
-        observacao
-
-    };
-
-    const registroSalvo = registrarPonto(
-        empresaAtual.nome,
-        funcionarioAtual.usuario,
-        registro
-    );
-
-    if (!registroSalvo) {
-
-        mostrarMensagem(
-            "Não foi possível salvar o registro.",
-            "erro"
-        );
-
-        return;
-
-    }
-
-    fecharModalPonto();
-
-    atualizarTela();
-
-    mostrarMensagem(
-        `${proximoMomento.nome} registrado com sucesso.`,
-        "sucesso"
-    );
 
 }
 

@@ -1,249 +1,304 @@
 <!DOCTYPE html>
-
 <html lang="pt-BR">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Gestão Saudável</title>
 
     <link rel="icon" href="../img/favicon.png">
-
     <link rel="stylesheet" href="../css/style.css">
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
 
-<body>
+<body class="login-body">
 
-<div class="login-page fade">
+<main class="modern-login-page fade">
 
-    <div class="login-container">
+    <section class="modern-login-shell">
 
-        <!-- =============================
-             LADO ESQUERDO
-        ============================== -->
+        <!-- LADO VISUAL -->
 
-        <section class="left-side">
+        <section class="login-visual-panel">
 
-            <div class="logo-area">
+            <div class="brand-lockup">
 
-                <img src="../img/logo.png" alt="Logo">
+                <img
+                    src="../img/logo.png"
+                    alt="Logo Gestão Saudável"
+                    class="brand-logo"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
 
-                <h1>
+                <div class="brand-logo-fallback" aria-hidden="true">
+                    <i class="fa-solid fa-people-group"></i>
+                </div>
 
-                    Gestão Saudável
-
-                </h1>
-
-                <p>
-
-                    Promovendo ambientes de trabalho mais saudáveis.
-
-                </p>
+                <div>
+                    <h1>Gestão Saudável</h1>
+                    <p>Promovendo ambientes de trabalho mais saudáveis.</p>
+                </div>
 
             </div>
-            <div class="hero-card">
 
-                <div class="hero-top">
+            <div class="visual-dashboard-card">
 
-                    <div class="status-card">
+                <header class="visual-dashboard-topbar">
+                    <div class="visual-window-dots">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
 
-                        <i class="fa-solid fa-chart-line"></i>
+                    <div class="visual-chart-bubble">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                </header>
 
-                        <div>
+                <div class="visual-dashboard-content">
 
-                            <h3>ICPO</h3>
+                    <article class="visual-wellbeing-card">
+                        <span>Bem-estar da equipe</span>
 
-                            <span>84</span>
+                        <div class="visual-wellbeing-content">
+                            <div class="visual-donut"></div>
 
+                            <div>
+                                <strong>82%</strong>
+                                <small>Saudável</small>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="visual-line-card">
+                        <span>Indicadores</span>
+
+                        <div class="visual-line-chart">
+                            <span class="line-point point-one"></span>
+                            <span class="line-point point-two"></span>
+                            <span class="line-point point-three"></span>
+                            <span class="line-point point-four"></span>
+                            <span class="line-point point-five"></span>
+                            <span class="line-point point-six"></span>
+                            <svg viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true">
+                                <polyline
+                                    points="0,95 45,75 80,82 130,52 170,70 220,32 255,40 300,8"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    stroke-width="5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"></polyline>
+                            </svg>
+                        </div>
+                    </article>
+
+                    <div class="visual-metrics-row">
+
+                        <article>
+                            <div class="visual-metric-icon blue">
+                                <i class="fa-solid fa-users"></i>
+                            </div>
+                            <span>Colaboradores</span>
+                            <strong>128</strong>
+                        </article>
+
+                        <article>
+                            <div class="visual-metric-icon pink">
+                                <i class="fa-solid fa-heart"></i>
+                            </div>
+                            <span>Estados positivos</span>
+                            <strong>76%</strong>
+                        </article>
+
+                        <article>
+                            <div class="visual-metric-icon orange">
+                                <i class="fa-solid fa-chart-simple"></i>
+                            </div>
+                            <span>Registros hoje</span>
+                            <strong>89</strong>
+                        </article>
+
+                    </div>
+
+                    <div class="visual-people-scene" aria-hidden="true">
+
+                        <div class="visual-person visual-person-left">
+                            <div class="visual-head"></div>
+                            <div class="visual-hair"></div>
+                            <div class="visual-body"></div>
+                            <div class="visual-laptop">
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <div class="visual-desk"></div>
+
+                        <div class="visual-plant">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <div></div>
+                        </div>
+
+                        <div class="visual-person visual-person-right">
+                            <div class="visual-head"></div>
+                            <div class="visual-hair"></div>
+                            <div class="visual-body"></div>
+                            <div class="visual-tablet"></div>
+                            <div class="visual-arm"></div>
                         </div>
 
                     </div>
 
-                    <div class="status-card">
-
-                        <i class="fa-solid fa-users"></i>
-
-                        <div>
-
-                            <h3>Equipe</h3>
-
-                            <span>126</span>
-
-                        </div>
-
-                    </div>
-
                 </div>
 
-                <div class="hero-image">
+            </div>
 
-                    <img src="../img/login-ilustracao.png" alt="Ilustração" onerror="this.style.display='none'">
+            <div class="login-feature-row">
 
-                </div>
-
-                <div class="hero-info">
-
-                    <div class="info-item">
-
-                        <i class="fa-solid fa-circle-check"></i>
-
-                        <span>Monitoramento em tempo real</span>
-
+                <article>
+                    <div class="feature-icon blue">
+                        <i class="fa-solid fa-shield-halved"></i>
                     </div>
+                    <span>Monitoramento inteligente</span>
+                </article>
 
-                    <div class="info-item">
-
-                        <i class="fa-solid fa-heart-pulse"></i>
-
-                        <span>Indicadores psicossociais inteligentes</span>
-
+                <article>
+                    <div class="feature-icon pink">
+                        <i class="fa-regular fa-heart"></i>
                     </div>
+                    <span>Ambiente seguro</span>
+                </article>
 
-                    <div class="info-item">
-
-                        <i class="fa-solid fa-chart-pie"></i>
-
-                        <span>Dashboard para gestores</span>
-
+                <article>
+                    <div class="feature-icon orange">
+                        <i class="fa-solid fa-chart-column"></i>
                     </div>
+                    <span>Decisões baseadas em dados</span>
+                </article>
 
-                </div>
+                <article>
+                    <div class="feature-icon purple">
+                        <i class="fa-regular fa-bell"></i>
+                    </div>
+                    <span>Indicadores organizacionais</span>
+                </article>
 
             </div>
 
         </section>
 
-        <!-- =============================
-             LADO DIREITO
-        ============================== -->
+        <!-- FORMULÁRIO -->
 
-        <section class="right-side">
+        <section class="login-form-panel">
 
-            <div class="login-card">
-                <h2>
+            <div class="language-chip" aria-label="Idioma atual">
+                <i class="fa-solid fa-globe"></i>
+                <span>PT</span>
+                <i class="fa-solid fa-chevron-down"></i>
+            </div>
 
-                    Bem-vindo!
-                
-                </h2>
-                
-                <p class="login-subtitle">
-                
-                    Entre para acessar o sistema.
-                
-                </p>
-                
-                <form id="formLogin">
-                
-                    <div class="input-group">
-                
-                        <label for="empresa">
-                
-                            Empresa
-                
-                        </label>
-                
-                        <div class="input-box">
-                
-                            <i class="fa-solid fa-building"></i>
-                
+            <div class="login-form-card">
+
+                <header>
+                    <span class="login-eyebrow">Bem-vindo</span>
+                    <h2>Acesse sua conta</h2>
+                    <p>Entre com os dados cadastrados da sua empresa.</p>
+                </header>
+
+                <form id="formLogin" novalidate>
+
+                    <div class="input-group modern-input-group">
+                        <label for="empresa">Empresa</label>
+
+                        <div class="input-box modern-input-box">
+                            <i class="fa-regular fa-building"></i>
                             <input
                                 type="text"
                                 id="empresa"
-                                placeholder="Digite o nome da empresa"
+                                placeholder="Nome da empresa"
+                                autocomplete="organization"
                                 required>
-                
                         </div>
-                
                     </div>
-                
-                    <div class="input-group">
-                
-                        <label for="usuario">
-                
-                            Usuário
-                
-                        </label>
-                
-                        <div class="input-box">
-                
-                            <i class="fa-solid fa-user"></i>
-                
+
+                    <div class="input-group modern-input-group">
+                        <label for="usuario">Usuário</label>
+
+                        <div class="input-box modern-input-box">
+                            <i class="fa-regular fa-user"></i>
                             <input
                                 type="text"
                                 id="usuario"
-                                placeholder="Digite seu usuário"
+                                placeholder="Seu usuário"
+                                autocomplete="username"
                                 required>
-                
                         </div>
-                
                     </div>
-                
-                    <div class="input-group">
-                
-                        <label for="senha">
-                
-                            Senha
-                
-                        </label>
-                
-                        <div class="input-box">
-                
+
+                    <div class="input-group modern-input-group">
+                        <label for="senha">Senha</label>
+
+                        <div class="input-box modern-input-box">
                             <i class="fa-solid fa-lock"></i>
-                
                             <input
                                 type="password"
                                 id="senha"
-                                placeholder="Digite sua senha"
+                                placeholder="Sua senha"
+                                autocomplete="current-password"
                                 required>
-                
+
+                            <button
+                                id="btnMostrarSenha"
+                                class="password-toggle"
+                                type="button"
+                                aria-label="Mostrar senha">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
                         </div>
-                
                     </div>
-                
-                    <button
-                        class="btn"
-                        type="submit">
-                
-                        Entrar
-                
+
+                    <label class="remember-company">
+                        <input type="checkbox" id="lembrarEmpresa">
+                        <span>Lembrar empresa</span>
+                    </label>
+
+                    <button class="btn modern-login-button" type="submit">
+                        <span>Entrar</span>
+                        <i class="fa-solid fa-arrow-right"></i>
                     </button>
-                
+
                 </form>
-                
-                <p class="register-text">
-                
-                    Não possui uma empresa cadastrada?
-                
-                    <a href="cadastro.html">
-                
-                        Criar empresa
-                
-                    </a>
-                
+
+                <div class="login-divider">
+                    <span></span>
+                    <small>ou</small>
+                    <span></span>
+                </div>
+
+                <p class="modern-register-text">
+                    Não possui empresa?
+                    <a href="cadastro.html">Criar empresa</a>
                 </p>
+
             </div>
 
         </section>
 
-    </div>
+    </section>
 
-</div>
+</main>
 
 <script src="../js/banco.js"></script>
-
 <script src="../js/login.js"></script>
 
 </body>

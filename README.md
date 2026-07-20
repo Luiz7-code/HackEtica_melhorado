@@ -1,1 +1,0 @@
-# HackEtica_melhorado

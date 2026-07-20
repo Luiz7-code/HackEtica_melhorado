@@ -469,7 +469,7 @@
 
         </header>
 
-        <form id="formPonto">
+        <form id="formPonto" novalidate>
 
             <div class="point-moment-card">
 
@@ -508,8 +508,7 @@
                         <input
                             type="radio"
                             name="estadoPonto"
-                            value="Disposto"
-                            required>
+                            value="Disposto">
 
                         <span class="state-option-content">
 
@@ -530,8 +529,7 @@
                         <input
                             type="radio"
                             name="estadoPonto"
-                            value="Neutro"
-                            required>
+                            value="Neutro">
 
                         <span class="state-option-content">
 
@@ -552,8 +550,7 @@
                         <input
                             type="radio"
                             name="estadoPonto"
-                            value="Sobrecarregado"
-                            required>
+                            value="Sobrecarregado">
 
                         <span class="state-option-content">
 
@@ -618,6 +615,7 @@
                 </button>
 
                 <button
+                    id="btnConfirmarPonto"
                     class="action-button"
                     type="submit">
 
